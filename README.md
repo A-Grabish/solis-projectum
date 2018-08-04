@@ -2,7 +2,7 @@
 
 A project which seeks to further understand the relationship between space weather and the impacts to climate and weather changes on Earth.
 
-![](images/solar-earth-weather.jpg | width=250)
+![](images/solar-earth-weather.jpg)
 
 ### Team:
 - Aaron Grabish
