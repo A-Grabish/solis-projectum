@@ -10,13 +10,26 @@ A project which seeks to further understand the relationship between space weath
 - Shaurya Patel
 
 ---
-
-### Data
-- [https://api.nasa.gov/](https://api.nasa.gov/)
-- [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
+### Summary
+There is a correlation between solar activity and the surface temperature of the Earth.
 
 ### Research Questions
+- Does sunspot activity have an effect on the yearly average temperature in the United States?
+- Does an increase in sunspot activity increase the duration of summer? Or the intensity of summer?
+- Does a decrease in sunspot activity increase the duration of winter? Or the severity of winter?
 
 ### Techniques & Tools
 
+- Build data retrieval plan
+- Clean and Normalize the data
+- Normalize
+- Analyze
+	- Linear Regression
+	- Sinusoidal Regression
+ - Visualization
+    - Scatter Plot
+
 ### Data limitations/shortcomings
+
+- Accuracy of observation
+- Outside Factors
