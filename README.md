@@ -18,8 +18,11 @@ There is a correlation between solar activity and the surface temperature of the
 - Does an increase in sunspot activity increase the duration of summer? Or the intensity of summer?
 - Does a decrease in sunspot activity increase the duration of winter? Or the severity of winter?
 
-### Techniques & Tools
+### Data
+- [https://api.nasa.gov/](https://api.nasa.gov/)
+- [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
+### Techniques & Tools
 - Build data retrieval plan
 - Clean and Normalize the data
 - Normalize
