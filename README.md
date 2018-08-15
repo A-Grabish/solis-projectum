@@ -7,7 +7,6 @@ A project which seeks to further understand the relationship between space weath
 ### Team:
 - Aaron Grabish
 - Chris Hayes
-- Shaurya Patel
 
 ---
 ### Summary
