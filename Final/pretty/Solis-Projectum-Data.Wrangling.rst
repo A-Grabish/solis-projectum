@@ -251,7 +251,7 @@ Sunspots
 
     # remove all years prior to 1985, reset index
     sunspots_monthly_1895 = sunspots_monthly_data[sunspots_monthly_data["Year"] >= 1895]
-    sunspots_monthly_1895 = sunspots_monthly_1895.reset_index(drop=True)
+    sunspots_monthly_1895 = sunspots_monthly_1895.set_index("Year")
     sunspots_monthly_1895.head()
 
 
@@ -277,7 +277,6 @@ Sunspots
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Month</th>
           <th>Date (fraction of year)</th>
           <th>Monthly Mean Total</th>
@@ -285,11 +284,19 @@ Sunspots
           <th>Number of Observations</th>
           <th>Definitive/Provisional</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>0</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>1</td>
           <td>1895.042</td>
           <td>105.4</td>
@@ -298,8 +305,7 @@ Sunspots
           <td>1</td>
         </tr>
         <tr>
-          <th>1</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>2</td>
           <td>1895.123</td>
           <td>112.0</td>
@@ -308,8 +314,7 @@ Sunspots
           <td>1</td>
         </tr>
         <tr>
-          <th>2</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>3</td>
           <td>1895.204</td>
           <td>101.6</td>
@@ -318,8 +323,7 @@ Sunspots
           <td>1</td>
         </tr>
         <tr>
-          <th>3</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>4</td>
           <td>1895.288</td>
           <td>128.2</td>
@@ -328,8 +332,7 @@ Sunspots
           <td>1</td>
         </tr>
         <tr>
-          <th>4</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>5</td>
           <td>1895.371</td>
           <td>112.5</td>
@@ -370,7 +373,6 @@ Sunspots
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Month</th>
           <th>Date (fraction of year)</th>
           <th>Monthly Mean Total</th>
@@ -378,11 +380,19 @@ Sunspots
           <th>Number of Observations</th>
           <th>Definitive/Provisional</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>1478</th>
-          <td>2018</td>
+          <th>2018</th>
           <td>3</td>
           <td>2018.204</td>
           <td>2.5</td>
@@ -391,8 +401,7 @@ Sunspots
           <td>1</td>
         </tr>
         <tr>
-          <th>1479</th>
-          <td>2018</td>
+          <th>2018</th>
           <td>4</td>
           <td>2018.286</td>
           <td>8.9</td>
@@ -401,8 +410,7 @@ Sunspots
           <td>0</td>
         </tr>
         <tr>
-          <th>1480</th>
-          <td>2018</td>
+          <th>2018</th>
           <td>5</td>
           <td>2018.371</td>
           <td>13.2</td>
@@ -411,8 +419,7 @@ Sunspots
           <td>0</td>
         </tr>
         <tr>
-          <th>1481</th>
-          <td>2018</td>
+          <th>2018</th>
           <td>6</td>
           <td>2018.453</td>
           <td>15.9</td>
@@ -421,8 +428,7 @@ Sunspots
           <td>0</td>
         </tr>
         <tr>
-          <th>1482</th>
-          <td>2018</td>
+          <th>2018</th>
           <td>7</td>
           <td>2018.538</td>
           <td>1.6</td>
@@ -614,9 +620,14 @@ Sunspots
 
 .. code:: ipython3
 
+    # clean year; integer value
+    sunspots_yearly_data["Year"] = sunspots_yearly_data["Year"].apply(solis.clean_int_year)
+
+.. code:: ipython3
+
     # remove all years prior to 1985, reset index
     sunspots_yearly_1895 = sunspots_yearly_data[sunspots_yearly_data["Year"] >= 1895]
-    sunspots_yearly_1895 = sunspots_yearly_1895.reset_index(drop=True)
+    sunspots_yearly_1895 = sunspots_yearly_1895.set_index("Year")
     sunspots_yearly_1895.head()
 
 
@@ -642,49 +653,50 @@ Sunspots
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Yearly Mean Total Sunspots</th>
           <th>Yearly Mean SD</th>
           <th>Number of Observations</th>
           <th>Definitive/Provisional</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>0</th>
-          <td>1895.5</td>
+          <th>1895</th>
           <td>106.6</td>
           <td>9.2</td>
           <td>365</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>1</th>
-          <td>1896.5</td>
+          <th>1896</th>
           <td>69.4</td>
           <td>7.4</td>
           <td>366</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>2</th>
-          <td>1897.5</td>
+          <th>1897</th>
           <td>43.8</td>
           <td>5.9</td>
           <td>365</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>3</th>
-          <td>1898.5</td>
+          <th>1898</th>
           <td>44.4</td>
           <td>6.0</td>
           <td>365</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>4</th>
-          <td>1899.5</td>
+          <th>1899</th>
           <td>20.2</td>
           <td>4.1</td>
           <td>365</td>
@@ -723,49 +735,50 @@ Sunspots
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Yearly Mean Total Sunspots</th>
           <th>Yearly Mean SD</th>
           <th>Number of Observations</th>
           <th>Definitive/Provisional</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>118</th>
-          <td>2013.5</td>
+          <th>2013</th>
           <td>94.0</td>
           <td>6.9</td>
           <td>5347</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>119</th>
-          <td>2014.5</td>
+          <th>2014</th>
           <td>113.3</td>
           <td>8.0</td>
           <td>5273</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>120</th>
-          <td>2015.5</td>
+          <th>2015</th>
           <td>69.8</td>
           <td>6.4</td>
           <td>8903</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>121</th>
-          <td>2016.5</td>
+          <th>2016</th>
           <td>39.8</td>
           <td>3.9</td>
           <td>9940</td>
           <td>1</td>
         </tr>
         <tr>
-          <th>122</th>
-          <td>2017.5</td>
+          <th>2017</th>
           <td>21.7</td>
           <td>2.5</td>
           <td>11444</td>
@@ -1083,7 +1096,7 @@ Temperature
                                                         (temp_avg_data["Code"] > 1100000000)])
     
     # washing up the data
-    temp_avg_lower_48_data["Code"] = pd.to_numeric(temp_avg_lower_48_data["Code"].apply(solis.clean_trim_year))
+    temp_avg_lower_48_data["Code"] = temp_avg_lower_48_data["Code"].apply(solis.clean_trim_year)
     
     temp_avg_lower_48_data = temp_avg_lower_48_data.rename(index = str, columns = {"Code":"Year"})
     temp_avg_lower_48_data = temp_avg_lower_48_data.set_index("Year")
@@ -1666,10 +1679,10 @@ Temperature
                                                         (temp_max_data["Year"] > 1100000000)])
     
     # washing up the data
-    temp_max_lower_48_data["Year"] = pd.to_numeric(temp_max_lower_48_data["Year"].apply(solis.clean_trim_year))
+    temp_max_lower_48_data["Year"] = temp_max_lower_48_data["Year"].apply(solis.clean_trim_year)
     
     temp_max_lower_48_data = temp_max_lower_48_data[temp_max_lower_48_data.Year != 2018]
-    temp_max_lower_48_data = temp_max_lower_48_data.reset_index(drop = True)
+    temp_max_lower_48_data = temp_max_lower_48_data.set_index("Year")
 
 .. code:: ipython3
 
@@ -1698,7 +1711,6 @@ Temperature
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Jan</th>
           <th>Feb</th>
           <th>March</th>
@@ -1712,11 +1724,25 @@ Temperature
           <th>Nov</th>
           <th>Dec</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>0</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>36.86</td>
           <td>37.65</td>
           <td>52.07</td>
@@ -1731,8 +1757,7 @@ Temperature
           <td>42.08</td>
         </tr>
         <tr>
-          <th>1</th>
-          <td>1896</td>
+          <th>1896</th>
           <td>41.41</td>
           <td>46.56</td>
           <td>49.42</td>
@@ -1747,8 +1772,7 @@ Temperature
           <td>45.79</td>
         </tr>
         <tr>
-          <th>2</th>
-          <td>1897</td>
+          <th>1897</th>
           <td>37.65</td>
           <td>43.29</td>
           <td>49.32</td>
@@ -1763,8 +1787,7 @@ Temperature
           <td>40.62</td>
         </tr>
         <tr>
-          <th>3</th>
-          <td>1898</td>
+          <th>1898</th>
           <td>40.77</td>
           <td>46.76</td>
           <td>52.36</td>
@@ -1779,8 +1802,7 @@ Temperature
           <td>38.93</td>
         </tr>
         <tr>
-          <th>4</th>
-          <td>1899</td>
+          <th>1899</th>
           <td>39.88</td>
           <td>36.36</td>
           <td>48.87</td>
@@ -1827,7 +1849,6 @@ Temperature
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Jan</th>
           <th>Feb</th>
           <th>March</th>
@@ -1841,11 +1862,25 @@ Temperature
           <th>Nov</th>
           <th>Dec</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>118</th>
-          <td>2013</td>
+          <th>2013</th>
           <td>42.71</td>
           <td>45.46</td>
           <td>52.70</td>
@@ -1860,8 +1895,7 @@ Temperature
           <td>41.52</td>
         </tr>
         <tr>
-          <th>119</th>
-          <td>2014</td>
+          <th>2014</th>
           <td>42.44</td>
           <td>43.02</td>
           <td>52.84</td>
@@ -1876,8 +1910,7 @@ Temperature
           <td>45.34</td>
         </tr>
         <tr>
-          <th>120</th>
-          <td>2015</td>
+          <th>2015</th>
           <td>43.27</td>
           <td>44.40</td>
           <td>57.76</td>
@@ -1892,8 +1925,7 @@ Temperature
           <td>48.06</td>
         </tr>
         <tr>
-          <th>121</th>
-          <td>2016</td>
+          <th>2016</th>
           <td>41.86</td>
           <td>50.81</td>
           <td>59.47</td>
@@ -1908,8 +1940,7 @@ Temperature
           <td>42.64</td>
         </tr>
         <tr>
-          <th>122</th>
-          <td>2017</td>
+          <th>2017</th>
           <td>42.78</td>
           <td>52.14</td>
           <td>57.81</td>
@@ -2231,10 +2262,10 @@ Temperature
                                                         (temp_min_data["Year"] > 1100000000)])
     
     # washing up the data
-    temp_min_lower_48_data["Year"] = pd.to_numeric(temp_min_lower_48_data["Year"].apply(solis.clean_trim_year))
+    temp_min_lower_48_data["Year"] = temp_min_lower_48_data["Year"].apply(solis.clean_trim_year)
     
     temp_min_lower_48_data = temp_min_lower_48_data[temp_min_lower_48_data.Year != 2018]
-    temp_min_lower_48_data = temp_min_lower_48_data.reset_index(drop = True)
+    temp_min_lower_48_data = temp_min_lower_48_data.set_index("Year")
 
 .. code:: ipython3
 
@@ -2263,7 +2294,6 @@ Temperature
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Jan</th>
           <th>Feb</th>
           <th>March</th>
@@ -2277,11 +2307,25 @@ Temperature
           <th>Nov</th>
           <th>Dec</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>0</th>
-          <td>1895</td>
+          <th>1895</th>
           <td>16.52</td>
           <td>15.57</td>
           <td>27.86</td>
@@ -2296,8 +2340,7 @@ Temperature
           <td>21.33</td>
         </tr>
         <tr>
-          <th>1</th>
-          <td>1896</td>
+          <th>1896</th>
           <td>21.52</td>
           <td>23.52</td>
           <td>26.62</td>
@@ -2312,8 +2355,7 @@ Temperature
           <td>25.32</td>
         </tr>
         <tr>
-          <th>2</th>
-          <td>1897</td>
+          <th>1897</th>
           <td>18.66</td>
           <td>23.49</td>
           <td>28.27</td>
@@ -2328,8 +2370,7 @@ Temperature
           <td>20.88</td>
         </tr>
         <tr>
-          <th>3</th>
-          <td>1898</td>
+          <th>1898</th>
           <td>20.57</td>
           <td>23.97</td>
           <td>29.75</td>
@@ -2344,8 +2385,7 @@ Temperature
           <td>18.41</td>
         </tr>
         <tr>
-          <th>4</th>
-          <td>1899</td>
+          <th>1899</th>
           <td>19.49</td>
           <td>14.65</td>
           <td>26.38</td>
@@ -2392,7 +2432,6 @@ Temperature
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Year</th>
           <th>Jan</th>
           <th>Feb</th>
           <th>March</th>
@@ -2406,11 +2445,25 @@ Temperature
           <th>Nov</th>
           <th>Dec</th>
         </tr>
+        <tr>
+          <th>Year</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <th>118</th>
-          <td>2013</td>
+          <th>2013</th>
           <td>21.79</td>
           <td>24.08</td>
           <td>29.10</td>
@@ -2425,8 +2478,7 @@ Temperature
           <td>20.61</td>
         </tr>
         <tr>
-          <th>119</th>
-          <td>2014</td>
+          <th>2014</th>
           <td>18.68</td>
           <td>21.24</td>
           <td>28.18</td>
@@ -2441,8 +2493,7 @@ Temperature
           <td>28.26</td>
         </tr>
         <tr>
-          <th>120</th>
-          <td>2015</td>
+          <th>2015</th>
           <td>22.89</td>
           <td>21.58</td>
           <td>33.03</td>
@@ -2457,8 +2508,7 @@ Temperature
           <td>29.25</td>
         </tr>
         <tr>
-          <th>121</th>
-          <td>2016</td>
+          <th>2016</th>
           <td>22.59</td>
           <td>28.11</td>
           <td>35.51</td>
@@ -2473,8 +2523,7 @@ Temperature
           <td>23.27</td>
         </tr>
         <tr>
-          <th>122</th>
-          <td>2017</td>
+          <th>2017</th>
           <td>24.35</td>
           <td>30.20</td>
           <td>34.47</td>
